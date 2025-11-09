@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jignesh Malviya — 3D Designer</title>
+  <meta name="description" content="Jignesh Malviya — 3D Designer. Product visualization, characters, environments.">
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide-static@0.259.0/dist/lucide.min.js"></script>
+  <!-- model-viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="icon" href="assets/favicon.svg" />
+  <style>
+    /* Custom tweaks */
+    :root{
+      --glass: rgba(255,255,255,0.06);
+      --muted: rgba(226,238,246,0.7);
+      --accent1: #7dd3fc;
+      --accent2: #a78bfa;
+    }
+    /* Frosted glass */
+    .glass{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.04); }
+    /* soft glow */
+    .glow { box-shadow: 0 10px 30px rgba(124,58,237,0.15), 0 2px 6px rgba(125,211,252,0.06); }
+    /* tilt effect container */
+    .tilt { transform-style: preserve-3d; transition: transform 300ms cubic-bezier(.2,.9,.2,1); }
+    /* model-viewer size */
+    model-viewer{ width:100%; height:420px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#061226,#021019); }
+    @media (max-width:768px){ model-viewer{height:300px} }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-[#061126] to-[#04101a]">
+
+  <header class="sticky top-4 z-40">
+    <div class="max-w-6xl mx-auto px-6">
+      <nav class="flex items-center justify-between glass rounded-2xl p-3 backdrop-blur-sm">
+        <a class="flex items-center gap-3" href="#">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7dd3fc] to-[#a78bfa] flex items-center justify-center text-slate-900 font-bold">JM</div>
+          <div>
+            <div class="text-sm font-semibold">Jignesh Malviya</div>
+            <div class="text-xs text-slate-300">3D Designer</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-sm text-slate-300 hover:text-white" href="#work">Work</a>
+          <a class="text-sm text-slate-300 hover:text-white" href="#about">About</a>
+          <a class="text-sm text-slate-300 hover:text-white" href="#services">Services</a>
+          <a class="text-sm text-slate-300 hover:text-white" href="#contact">Contact</a>
+          <a class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold glow" href="#contact" style="background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#021018;">Hire me</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="menuBtn" class="p-2 rounded-lg glass">
+            <svg xmlns="http://www.w3.org/2000/svg" class="lucide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mt-10">
+    <section class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8 items-center">
+      <!-- Hero left -->
+      <div data-aos="fade-up">
+        <div class="rounded-2xl glass p-8">
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Jignesh Malviya</h1>
+          <p class="text-slate-300 mt-2 text-lg">3D Designer — product visualization · stylized characters · environments</p>
+          <p class="mt-4 text-slate-300 max-w-xl">I craft photoreal and stylized 3D visuals for brands, games, and films. I deliver renders, turntables, and optimized game assets. Available for freelance & collaboration.</p>
+
+          <div class="mt-6 flex gap-3">
+            <a href="#work" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold" style="background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#021018;">See my work</a>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 px-4 py-3 rounded-lg glass">Download resume</a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1 rounded-full glass">Blender</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">Substance</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">ZBrush</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">Redshift</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">PBR</span>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="glass rounded-2xl p-4 tilt" data-aos="zoom-in">
+            <h4 class="text-sm font-semibold">Recent — Product Render</h4>
+            <p class="text-xs text-slate-300 mt-1">E-commerce hero render, colorways & compositing</p>
+          </div>
+          <div class="glass rounded-2xl p-4 tilt" data-aos="zoom-in" data-aos-delay="80">
+            <h4 class="text-sm font-semibold">Recent — Stylized Character</h4>
+            <p class="text-xs text-slate-300 mt-1">Game-ready sculpt & texture set</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero right: model-viewer -->
+      <div data-aos="fade-left" class="relative">
+        <div class="glass rounded-2xl p-4 glow">
+          <!-- model-viewer: replace src with actual GLB/GLTF -->
+          <model-viewer src="assets/sample.glb" alt="3D model of a product" camera-controls auto-rotate environment-image="neutral" shadow-intensity="1" exposure="1"></model-viewer>
+        </div>
+
+        <div class="mt-4 flex gap-3">
+          <a class="glass rounded-lg px-3 py-2 text-sm" href="#" id="turntableBtn"><svg class="lucide" width="16" height="16"><path d="M21 12a9 9 0 1 0-9 9"/></svg> Turntable</a>
+          <a class="glass rounded-lg px-3 py-2 text-sm" href="#" id="downloadModelBtn"><svg class="lucide" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg> Download</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work showcase -->
+    <section id="work" class="mt-16 max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6" data-aos="fade-up">Selected Work</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards -->
+        <article class="group glass rounded-2xl overflow-hidden tilt" data-aos="fade-up" data-aos-delay="40">
+          <div class="relative h-64">
+            <img src="assets/placeholder-1.png" alt="Work 1" class="object-cover w-full h-full"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold">Product — Wireless Speaker</h3>
+            <p class="text-sm text-slate-300 mt-1">Photoreal render for campaign</p>
+          </div>
+        </article>
+
+        <article class="group glass rounded-2xl overflow-hidden tilt" data-aos="fade-up" data-aos-delay="80">
+          <div class="relative h-64">
+            <img src="assets/placeholder-2.png" alt="Work 2" class="object-cover w-full h-full"/>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold">Character — Stylized Hero</h3>
+            <p class="text-sm text-slate-300 mt-1">Sculpt, retopo & texture</p>
+          </div>
+        </article>
+
+        <article class="group glass rounded-2xl overflow-hidden tilt" data-aos="fade-up" data-aos-delay="120">
+          <div class="relative h-64">
+            <img src="assets/placeholder-3.png" alt="Work 3" class="object-cover w-full h-full"/>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold">Environment — Interior Scene</h3>
+            <p class="text-sm text-slate-300 mt-1">Lighting, materials & composite</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-16 max-w-6xl mx-auto px-6">
+      <div class="glass rounded-2xl p-8 grid lg:grid-cols-3 gap-6 items-center" data-aos="fade-up">
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold">About</h2>
+          <p class="text-slate-300 mt-3">I’m a 3D designer crafting visuals for brands, games and film. My focus is on lighting, material realism, and stylized character work. I ship final images, turntables, and optimized asset packs.</p>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-sm text-slate-300">
+            <li>10+ years in 3D production</li>
+            <li>Photoreal rendering & PBR workflows</li>
+            <li>Asset optimization for real-time engines</li>
+            <li>Full pipeline: sculpt → texture → render</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold">Tools</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1 rounded-full glass">Blender</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">Substance Painter</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">ZBrush</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">Redshift</span>
+            <span class="text-xs px-3 py-1 rounded-full glass">Photoshop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="mt-16 max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6" data-aos="fade-up">Services</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6 tilt" data-aos="fade-up" data-aos-delay="40">
+          <h4 class="font-semibold">Product Visualization</h4>
+          <p class="text-sm text-slate-300 mt-2">Hero images, colorways, and compositing for marketing.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 tilt" data-aos="fade-up" data-aos-delay="80">
+          <h4 class="font-semibold">Character & Creature</h4>
+          <p class="text-sm text-slate-300 mt-2">Stylized and realistic character creation for games & film.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 tilt" data-aos="fade-up" data-aos-delay="120">
+          <h4 class="font-semibold">Environment Art</h4>
+          <p class="text-sm text-slate-300 mt-2">Scene design, lighting, materials and final compositing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-16 max-w-6xl mx-auto px-6 mb-16">
+      <div class="glass rounded-2xl p-8" data-aos="fade-up">
+        <h2 class="text-2xl font-bold">Contact</h2>
+        <p class="text-slate-300 mt-2">Interested in working together? Send me a message.</p>
+
+        <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" action="mailto:hello@example.com" method="post" enctype="text/plain">
+          <input class="p-3 rounded-lg bg-transparent border border-white/5" name="name" placeholder="Your name" required>
+          <input class="p-3 rounded-lg bg-transparent border border-white/5" name="email" type="email" placeholder="Email" required>
+          <textarea class="md:col-span-2 p-3 rounded-lg bg-transparent border border-white/5" name="message" rows="5" placeholder="Tell me about the project" required></textarea>
+          <button type="submit" class="md:col-span-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg" style="background:linear-gradient(90deg,var(--accent2),var(--accent1)); color:#021018;">Send message</button>
+        </form>
+
+        <p class="text-slate-400 text-sm mt-4">Or email: <a href="mailto:hello@example.com" class="text-slate-100 underline">hello@example.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div class="text-sm text-slate-300">© <span id="year"></span> Jignesh Malviya</div>
+      <div class="flex items-center gap-3">
+        <a href="#" class="glass p-2 rounded-lg"><svg class="lucide" width="16" height="16"><path d="M18 2h-3a4 4 0 0 0-4 4v3H7v4h4v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="glass p-2 rounded-lg"><svg class="lucide" width="16" height="16"><path d="M22 2H2v20l6-3 4 2 8-16z"/></svg></a>
+        <a href="#" class="glass p-2 rounded-lg"><svg class="lucide" width="16" height="16"><path d="M12 2.248c-5.522 0-10 4.477-10 10 0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.238-.009-.868-.014-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.607.069-.607 1.004.071 1.532 1.038 1.532 1.038.892 1.529 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.945 0-1.091.39-1.983 1.029-2.681-.103-.253-.447-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.026 2.748-1.026.546 1.378.202 2.397.099 2.65.64.698 1.028 1.59 1.028 2.681 0 3.846-2.338 4.688-4.566 4.937.359.31.679.92.679 1.855 0 1.338-.013 2.419-.013 2.749 0 .268.18.579.688.481C21.137 20.411 24 16.663 24 12.248c0-5.523-4.478-10-10-10z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn?.addEventListener('click', ()=> {
+      alert('Open mobile menu — replace with your own mobile nav.');
+    });
+
+    // Simple tilt effect for .tilt elements
+    document.querySelectorAll('.tilt').forEach(el=>{
+      el.addEventListener('mousemove', (e)=>{
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rx = (y - 0.5) * -6;
+        const ry = (x - 0.5) * 8;
+        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+      });
+      el.addEventListener('mouseleave', ()=> el.style.transform = '');
+    });
+
+    // model-viewer controls
+    const mv = document.querySelector('model-viewer');
+    document.getElementById('turntableBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      mv.setAttribute('auto-rotate', 'true');
+    });
+    document.getElementById('downloadModelBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      // download sample model file - replace with real
+      window.location.href = 'assets/sample.glb';
+    });
+  </script>
+</body>
+</html>
